@@ -1,4 +1,4 @@
-import 'package:digital_sales_app/Pages/HomePage.dart';
+import 'package:digital_sales_app/Pages/Home/HomePage.dart';
 import 'package:digital_sales_app/Pages/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 
 final navigatorKey = GlobalKey<NavigatorState>();
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 

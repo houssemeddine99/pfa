@@ -31,7 +31,7 @@ class User {
   // Factory method to create a User from JSON
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['_id'],
+      id: json['id'],
       firstname: json['firstname'],
       lastname: json['lastname'],
       clients: (json['clients'] as List).map((e) => Client.fromJson(e)).toList(),

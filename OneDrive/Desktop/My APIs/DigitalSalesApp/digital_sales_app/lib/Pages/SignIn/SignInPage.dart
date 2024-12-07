@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import 'package:digital_sales_app/Pages/HomePage.dart';
+import 'package:digital_sales_app/Pages/Home/HomePage.dart';
 import 'package:digital_sales_app/Pages/SourcePage.dart';
 import 'package:digital_sales_app/Services/SecureStorage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
-import '../.env.dart';
-import '../Widgets/DialogAlert.dart';
+import '../../.env.dart';
+import '../../Widgets/DialogAlert.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -51,7 +51,7 @@ class _SignInPageState extends State<SignInPage> {
           await saveUserID(responseBody['id']);
           await saveUserFirstName(responseBody['firstname']);
           await saveUserLastName(responseBody['lastname']);
-
+          await saveUserEmail(responseBody["email"]);
           setState(() {
             _isButtonDisabled = false;
           });
@@ -81,7 +81,7 @@ class _SignInPageState extends State<SignInPage> {
         // Handle exceptions
         print('Error signing in: $e');
         setState(() {
-          _isButtonDisabled = false; // Enable the button
+          _isButtonDisabled = false; 
         });
       }
     }

@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:digital_sales_app/Pages/SignInPage.dart';
+import 'package:digital_sales_app/Pages/SignIn/SignInPage.dart';
 import 'package:digital_sales_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -80,6 +80,31 @@ Future<String?> readUserFirstName() async {
   }
 }
 
+Future<void> saveUserEmail(String email) async {
+  try {
+    await storage.write(key: 'user_email', value: email);
+  } catch (e) {
+    print('Error saving user email: $e');
+  }
+}
+
+Future<void> deleteUserEmail() async {
+  try {
+    await storage.delete(key: 'user_email');
+  } catch (e) {
+    print('Error deleting user email: $e');
+  }
+}
+
+Future<String?> readUserEmail() async {
+  try {
+    String? email = await storage.read(key: 'user_email');
+    return email;
+  } catch (e) {
+    print('Error reading user email: $e');
+    return null;
+  }
+}
 Future<String?> readUserLastName() async {
   try {
     String? lastName = await storage.read(key: 'user_last_name');
@@ -126,7 +151,8 @@ void logout() {
   deleteToken();
   deleteClientID();
   deleteUserID();
- 
+  deleteUserNames();
+  deleteUserEmail();
     navigatorKey.currentState?.popUntil((route) => route.isFirst);
             navigatorKey.currentState?.pushReplacement(
               MaterialPageRoute(builder: (context) => SignInPage()),

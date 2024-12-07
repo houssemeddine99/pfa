@@ -1,9 +1,10 @@
 import 'package:digital_sales_app/Models/Product.dart';
+import 'package:digital_sales_app/Pages/ProductsList/ProductDetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-import 'DialogAlert.dart';
+import '../../../Widgets/DialogAlert.dart';
 
 class productCard extends StatelessWidget {
   final Product product;
@@ -16,7 +17,12 @@ class productCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-       
+    showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return ProductDetailsDialog(product: product);
+    },
+  );
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 20, left: 5, right: 5),
@@ -60,9 +66,9 @@ class productCard extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Icon(
-                      Icons.arrow_forward_ios,
+                        Icons.edit,
                       color: Colors.black,
-                      size: 15,
+                      size: 20,
                     ),
                   ),
                 ),

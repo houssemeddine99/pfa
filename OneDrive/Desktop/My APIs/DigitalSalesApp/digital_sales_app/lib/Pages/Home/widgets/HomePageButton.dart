@@ -5,6 +5,7 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Widget icon;
 
+
   CustomButton({
     required this.text,
     required this.onPressed,
@@ -13,9 +14,24 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double w ;
+    double h ;
+  if (MediaQuery.of(context).size.width <450 && MediaQuery.of(context).size.height < 550){
+   w = MediaQuery.of(context).size.width * 0.42;
+   h = MediaQuery.of(context).size.height * 0.27;
+  }
+    else if (MediaQuery.of(context).size.width <500){
+   w = MediaQuery.of(context).size.width * 0.42;
+   h = MediaQuery.of(context).size.height * 0.18;
+  }
+  else{
+    w = MediaQuery.of(context).size.width * 0.42;
+   h = MediaQuery.of(context).size.height * 0.3;
+  }
+
     return Container(
-      height: MediaQuery.of(context).size.width * 0.35,
-      width: MediaQuery.of(context).size.width * 0.45,
+      height: h,
+      width: w,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [

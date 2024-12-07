@@ -1,7 +1,7 @@
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:digital_sales_app/Pages/HomePage.dart';
-import 'package:digital_sales_app/Pages/SignInPage.dart';
+import 'package:digital_sales_app/Pages/Home/HomePage.dart';
+import 'package:digital_sales_app/Pages/SignIn/SignInPage.dart';
 import 'package:digital_sales_app/Pages/SourcePage.dart';
 import 'package:digital_sales_app/Services/SecureStorage.dart';
 import 'package:flutter/material.dart';
@@ -46,9 +46,9 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       Navigator.pushAndRemoveUntil(
         context,
-         MaterialPageRoute(builder: (context) =>  BasePage(child: HomePage(),)),
+
         
-       // MaterialPageRoute(builder: (context) => const SignInPage()),
+       MaterialPageRoute(builder: (context) => const SignInPage()),
             (route) => false,
       );
     }

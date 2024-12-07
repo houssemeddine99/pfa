@@ -1,4 +1,5 @@
-import 'package:digital_sales_app/Pages/ContractListPage.dart';
+import 'package:digital_sales_app/Pages/ContratList/ContractListPage.dart';
+import 'package:digital_sales_app/Pages/ClientsList/MyClientsPage.dart';
 import 'package:digital_sales_app/Services/SecureStorage.dart';
 import 'package:flutter/material.dart';
 
@@ -87,6 +88,16 @@ class _BasePageState extends State<BasePage> {
                            Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ContactListPage()),
+                  );
+              },
+            ),
+               ListTile(
+              title: Text("Mes Clients"),
+              leading: Icon(Icons.person_pin_rounded),
+              onTap: () {
+                           Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyClientsPage()),
                   );
               },
             ),

@@ -10,7 +10,7 @@ class Category {
   // Factory method to create a Category from JSON
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(
-      id: json['_id'],
+      id: json['id'],
       name: json['name'],
     );
   }
@@ -18,7 +18,7 @@ class Category {
   // Method to convert a Category object to JSON
   Map<String, dynamic> toJson() {
     return {
-      '_id': id,
+      'id': id,
       'name': name,
     };
   }
